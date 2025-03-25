@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header text-white bg-primary text-center">
+            <h2>About Our Application</h2>
+        </div>
+        <div class="card-body">
+            <p class="lead">
+                Welcome to <strong>[EMS]</strong>, an intuitive and efficient employee management system
+                designed to simplify HR processes. This application allows businesses to manage employee records,
+                track department details, and streamline administrative workflows.
+            </p>
+            <h4>Key Features:</h4>
+            <ul>
+                <li>View and manage employee details.</li>
+                <li>Add, update, and delete employee records.</li>
+                <li>Assign employees to different departments.</li>
+                <li>Built using ASP.NET MVC with LINQ and MySQL.</li>
+            </ul>
+            <h4>Technology Stack:</h4>
+            <ul>
+                <li><strong>Frontend:</strong> HTML, CSS, JavaScript, Bootstrap</li>
+                <li><strong>Backend:</strong> C#, ASP.NET MVC, ADO.NET</li>
+                <li><strong>Database:</strong> MySQL</li>
+            </ul>
+        </div>
+        <div class="card-footer text-center">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-success">Go to Home</a>
+        </div>
+    </div>
+</div>

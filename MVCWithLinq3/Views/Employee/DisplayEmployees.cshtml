@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVCWithLinq3.Models.EmpDept>
+@{
+    ViewBag.Title = "Display Employees";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary">Employee Details</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-warning text-center">No employees found.</div>
+    }
+    else
+    {
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(E => E.Eid)</th>
+                    <th>@Html.DisplayNameFor(E => E.Ename)</th>
+                    <th>@Html.DisplayNameFor(E => E.Job)</th>
+                    <th>@Html.DisplayNameFor(E => E.Salary)</th>
+                    <th>@Html.DisplayNameFor(E => E.Dname)</th>
+                    <th>@Html.DisplayNameFor(E => E.Location)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Employee in Model)
+                {
+                    <tr>
+                        <td>@Employee.Eid</td>
+                        <td>@Employee.Ename</td>
+                        <td>@Employee.Job</td>
+                        <td>@Employee.Salary</td>
+                        <td>@Employee.Dname</td>
+                        <td>@Employee.Location</td>
+                        <td>
+                            <a href="@Url.Action("DisplayEmployee", "Employee", new { Eid = Employee.Eid })" class="btn btn-info btn-sm">View</a>
+                            <a href="@Url.Action("EditEmployee", "Employee", new { Eid = Employee.Eid })" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="@Url.Action("DeleteEmployee", "Employee", new { Eid = Employee.Eid })"
+                               class="btn btn-danger btn-sm"
+                               onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <div class="text-center mt-3">
+        <a href="@Url.Action("AddEmployee", "Employee")" class="btn btn-success">Add New Employee</a>
+    </div>
+</div>
